@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0038)https://www.grc.com/sqrl/semantics.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>GRC's&nbsp;|&nbsp;SQRL Secure Quick Reliable Login Protocol Semantics&nbsp;&nbsp;</title>
+<meta name="keywords" content="SQRL Secure Quick Reliable Login Protocol Semantics, GRC, Gibson Research Corporation, Steve Gibson">
+<meta name="description" content="SQRL Secure Quick Reliable Login Protocol Semantics">
+<meta name="sitemenu" content=" ">
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="pics-label" content="(pics-1.1 &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true comment &quot;RSACi North America Server&quot; by &quot;offices_@_grc.com&quot; for &quot;https://www.grc.com&quot; on &quot;1998.03.30T21:20-0800&quot; r (n 0 s 0 v 0 l 0))">
+<meta http-equiv="pics-label" content="(pics-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true for &quot;https://www.grc.com&quot; r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true for &quot;https://www.grc.com&quot; r (n 0 s 0 v 0 l 0))">
+<link rel="icon" href="https://www.grctech.com/_f0aa2m1u0kp0a_/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.grctech.com/_f0aa2m1u0kp0a_/favicon.ico" type="image/x-icon">
+<link rel="meta" href="https://www.grc.com/labels.rdf" type="application/rdf+xml" title="ICRA labels">
+<link rel="stylesheet" media="all" type="text/css" href="./semantics_files/grc.css">
+<link rel="stylesheet" media="all" type="text/css" href="./semantics_files/mainmenu.css">
+<link rel="stylesheet" media="all" type="text/css" href="./semantics_files/thirdparty.css">
+
+<style type="text/css">
+ .greenhead { text-align:center; color:#008800; font-size:16pt; font-family:arial,helvetica; font-weight:bold; }
+ .callout	{ background:#f0f0ff; padding:1em; margin:1em 0 1em 1em; border-left:#6666ff solid 2px; }
+ .callsubj	{ font-family:arial; font-size:11pt; font-weight:bold; }
+ .greynote	{ color:#666; font-size:smaller; margin:-0.5em 0 2em 1.5em }
+ .greensub	{ color:#008800; text-align:center; margin-top:0.5em; font-family:arial,helvetica; font-weight:bold; }
+ .greybox   { padding:1em; margin:2.0em 0; background:#f8f8f8; border:#dddddd solid 2px; }
+ .greybox2  { padding:1.5em 2em; margin:2.0em 0; background:#f8f8f8; border:#dddddd solid 4px; }
+ .blackpara { color:#000; margin:0.25em 0 0; }
+ .centerarial { text-align:center; font-family:arial; font-size:larger; }
+ .lsa			{ font-size:larger; margin-top:1em }
+ .sectiondiv{ border-top:#00A 3px solid; font-size:20pt; margin-top:1em; padding-top:0.25em }
+ .redparam { font-family:'Courier New', Courier, monospace; font-weight:bold; color:#900; font-size:large; }
+ .parample { color:#000; font-family: 'Courier New', Courier, monospace; font-size:20pt; }
+ .urltxt   { color:#0000CC; font-family: 'Courier New', Courier, monospace; font-weight:bold; font-size:17px; }
+ .greyfade { font-style:italic; color:#aaa; }
+ .block    { margin:10px 0 10px 0.25em; padding-left:0.5em; border-left:#00f 2px solid; }
+ .comment  { font-weight: normal; color:#888; font-size:smaller;}
+ .repel span a { font-weight: normal; color:#888; font-size:smaller; }	/* the >> in the drop-down menus which link to sub-menus */
+
+</style>
+
+<style type="text/css">
+.dir { text-align:center; font-size:15pt; font-family:Arial, Helvetica, sans-serif; }
+.case { color:#a00; font-weight:bold; font-family:Arial, Helvetica, sans-serif; }
+.note { color:#000; font-family:Arial, Helvetica, sans-serif; font-style:italic; }
+.bin { margin-top:1em; }
+.bin td { padding:0.75em 0; border-top:1px solid #aaa; }
+.num { text-align:right; font-weight:bold; color:#00d; }
+.bot { border-bottom:1px solid #aaa; }
+.blu { font-weight:bold; color:#00d; }
+.not { margin-top:0.5em; color:#000; }
+.bar { font-family:Arial, Helvetica, sans-serif; text-align:center; margin:1.5em 0 1.25em -2em; padding:0.1em; background:#e8e8e8;	}
+.maj { font-size:16pt; margin-top:1em; border:1px solid #888; padding:4px; background:#f8f8f8; }
+</style>
+</head><body><a name="top"></a>
+
+<!-- ########################## GRC Masthead Menu ########################## -->
+
+<div class="menuminwidth0"><div class="menuminwidth1"><div class="menuminwidth2">
+<div id="masthead">
+	<a href="https://www.grc.com/default.htm"><img id="mastheadlogo" src="./semantics_files/mh-logo.gif" width="286" height="24" alt="Gibson Research Corporation" title=""></a>
+	<img id="focus" src="./semantics_files/mh-focus.gif" width="121" height="13" alt="" title="What we&#39;re about">
+	<a href="https://www.grc.com/news.htm"><img id="blogicon" src="./semantics_files/menublogicon.png" width="22" height="22" alt="blog icon" title="To our news and announcements page"></a>
+	<a href="https://www.grc.com/news.htm"><img id="twittericon" src="./semantics_files/menutwittericon.png" width="22" height="22" title="To our news and announcements page" alt="Twitter Icon"></a>
+	<a href="https://www.grc.com/news.htm"><img id="rssicon" src="./semantics_files/menurssicon.png" width="22" height="22" title="To our news and announcements page" alt="RSS Icon"></a>
+
+	<form action="https://www.google.com/search.htm" id="searchbox_000064552291181981813:y8yi5go2xza" onsubmit="javascript: this.action=&#39;https://www.grc.com/search.htm&#39;">
+		<input type="hidden" name="cx" value="000064552291181981813:y8yi5go2xza">
+		<input type="hidden" name="cof" value="FORID:11">
+		<input id="text" type="text" name="q" maxlength="256">
+		<input id="search" type="image" name="sa" value="Search" src="./semantics_files/mh-srch.gif" alt=" [Search]" title="">
+	</form>
+</div>
+
+<div class="menu">
+
+<ul>
+	<li><a href="https://www.grc.com/default.htm"><img src="./semantics_files/mb-home.gif" width="76" height="18" alt="[Home]" title=""><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+		<ul class="leftbutton">
+			<li><a href="https://www.grc.com/purchasing.htm">&nbsp;Purchasing</a></li>
+			<li><a href="https://www.grc.com/sales.htm">&nbsp;Sales Support</a></li>
+			<li><a href="https://www.grc.com/support.htm">&nbsp;Technical Support</a></li>
+			<li><a href="https://www.grc.com/default.htm#bottom">&nbsp;Contact Us</a></li>
+			<li><a href="https://www.grc.com/news.htm">&nbsp;Blogs, Twitter &amp; RSS</a></li>
+			<li><a href="https://www.grc.com/privacy.htm">&nbsp;Privacy Policy</a></li>
+<!--			<li><a href="/siteoptions.htm">&nbsp;Site Options</a></li>			-->
+			<li><a href="https://www.grc.com/stevegibson.htm">&nbsp;Steve's Projects Page</a></li>
+			<li><a href="https://www.grc.com/resume.htm">&nbsp;Steve's Old Resume</a></li>
+		</ul>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+</ul>
+
+<ul>
+	<li><a href="https://www.grc.com/sr/spinrite.htm"><img src="./semantics_files/mb-products.gif" width="96" height="18" alt="[Products]" title=""><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+		<ul>
+			<li><a href="https://www.grc.com/sr/spinrite.htm">&nbsp;General information</a></li>
+			<li><a href="https://www.grc.com/sr/whatitdoes.htm">&nbsp;What SpinRite Does</a></li>
+			<li><a href="https://www.grc.com/sr/testimonials.htm">&nbsp;User testimonials</a></li>
+			<li><a href="https://www.grc.com/sr/smart.htm">&nbsp;S.M.A.R.T. Monitor</a></li>
+			<li><a href="https://www.grc.com/cs/prepurch.htm">&nbsp;Purchase SpinRite</a></li>
+			<li><a href="https://www.grc.com/sr/faq.htm">&nbsp;FAQ</a></li>
+			<li><a href="https://www.grc.com/sr/themovie.htm">&nbsp;Demo Videos</a></li>
+			<li><a href="https://www.grc.com/sr/kb/sata.htm">&nbsp;Knowledgebase: SATA</a></li>
+			<li><a href="https://www.grc.com/sr/kb/badbios.htm">&nbsp;Knowledgebase: BIOS</a></li>
+			<li><a href="https://www.grc.com/sroverview.htm">&nbsp;SpinRite v5.0 pages</a></li>
+		</ul>
+	<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+</ul>
+
+<ul>
+	<li><a href="https://www.grc.com/x/ne.dll?bh0bkyd2"><img src="./semantics_files/mb-services.gif" width="94" height="18" alt="[Services]" title=""><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+		<ul>
+			<li><a href="https://www.grc.com/x/ne.dll?bh0bkyd2">&nbsp;ShieldsUP!</a></li>
+			<li><a href="https://www.grc.com/revocation.htm">&nbsp;Certificate Revocation</a></li>
+			<li><a href="https://www.grc.com/haystack.htm">&nbsp;Password Haystacks</a></li>
+			<li><a href="https://www.grc.com/fingerprints.htm">&nbsp;HTTPS Fingerprints</a></li>			
+			<li><a href="https://www.grc.com/securitynow.htm">&nbsp;Security Now!</a></li>
+			<li><a href="https://www.grc.com/dns/dns.htm">&nbsp;DNS Spoofability Test</a></li>
+			<li><a href="https://www.grc.com/passwords.htm">&nbsp;Perfect Passwords</a></li>
+			<li><a href="https://www.grc.com/ppp.htm">&nbsp;PPP Passwords</a></li>
+			<li><a href="https://www.grc.com/media.htm">&nbsp;Tech TV video clips</a></li>
+			<li><a href="https://www.grc.com/discussions.htm">&nbsp;Newsgroup Discussions</a></li>
+		</ul>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+</ul>
+
+<ul>
+	<li><a href="https://www.grc.com/freepopular.htm"><img src="./semantics_files/mb-freeware.gif" width="98" height="18" alt="[Freeware]" title=""><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+		<ul class="skinny">
+			<li><a href=""><span class="drop"><span>Security</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/lt/leaktest.htm">&nbsp;Leaktest</a></li>
+					<li><a href="https://www.grc.com/securable.htm">&nbsp;Securable</a></li>
+					<li><a href="https://www.grc.com/stm/shootthemessenger.htm">&nbsp;Shoot the messenger</a></li>
+					<li><a href="https://www.grc.com/unpnp/unpnp.htm">&nbsp;Unplug n' Pray</a></li>
+					<li><a href="https://www.grc.com/freeware/dcom.htm">&nbsp;DCOMbobulator</a></li>
+					<li><a href="https://www.grc.com/wmf/wmf.htm">&nbsp;MouseTrap</a></li>
+					<li><a href="https://www.grc.com/wmf/wmf.htm">&nbsp;MouseTrapCmd</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+	
+			<li><a href=""><span class="drop"><span>Utilities</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/dns/benchmark.htm">&nbsp;DNS Benchmark</a></li>
+					<li><a href="https://www.grc.com/wizmo/wizmo.htm">&nbsp;Wizmo</a></li>
+					<li><a href="https://www.grc.com/id/idserve.htm">&nbsp;ID Serve</a></li>
+					<li><a href="https://www.grc.com/freeware/clickey.htm">&nbsp;ClicKey</a></li>
+					<li><a href="https://www.grc.com/ct/cleartype.htm">&nbsp;Free &amp; Clear</a></li>
+					<li><a href="https://www.grc.com/tip/id.htm">&nbsp;IDentity (ASPI)</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+	
+			<li><a href=""><span class="drop"><span>Obsolete</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/cih/cih.htm">&nbsp;FIX-CIH</a></li>
+					<li><a href="https://www.grc.com/tip/clickdeath.htm">&nbsp;TIP (trouble in paradise)</a></li>
+					<li><a href="https://www.grc.com/oo-update.htm">&nbsp;OptOut</a></li>
+					<li><a href="https://www.grc.com/xpdite/xpdite.htm">&nbsp;XPdite</a></li>
+					<li><a href="https://www.grc.com/faq-shieldsup.htm">&nbsp;NoShare</a></li>
+					<li><a href="https://www.grc.com/faq-shieldsup.htm">&nbsp;LetShare</a></li>
+					<li><a href="https://www.grc.com/pw/patchwork.htm">&nbsp;Patchwork</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+		</ul>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+</ul>
+
+<ul>
+	<li><a href=""><img src="./semantics_files/mb-research.gif" width="98" height="18" alt="[Research]" title=""><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+		<ul class="skinny">
+			<li><a href=""><span class="drop"><span>General</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/malware.htm">&nbsp;Malware Repository</a></li>
+					<li><a href="https://www.grc.com/sqrl/sqrl.htm">&nbsp;SQRL&nbsp;Login&nbsp;Technology</a></li>					
+					<li><a href="https://www.grc.com/ssl/ev.htm">&nbsp;EV SSL/TLS Certificates</a></li>
+					<li><a href="https://www.grc.com/otg/uheprng.htm">&nbsp;Ultra-high entropy PRNG</a></li>
+					<li><a href="https://www.grc.com/menudemo.htm">&nbsp;Pure CSS web menus</a></li>
+					<li><a href="https://www.grc.com/nat/nat.htm">&nbsp;NAT router security</a></li>
+					<li><a href="https://www.grc.com/pda/palmpower.htm">&nbsp;PDA max battery life</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+	
+			<li><a href=""><span class="drop"><span>Pending</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/nf/netfilter.htm">&nbsp;GRC NetFilter</a></li>
+					<li><a href="https://www.grc.com/tp/trustpuppy.htm">&nbsp;TrustPuppy</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+	
+			<li><a href=""><span class="drop"><span>Historical</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/worms/25-01-03.htm">&nbsp;Worm wars of 2001</a></li>
+					<li><a href="https://www.grc.com/downloaders.htm">&nbsp;File downloader spying</a></li>
+					<li><a href="https://www.grc.com/ct/ctwhat.htm">&nbsp;Sub-pixel font rendering</a></li>
+					<li><a href="https://www.grc.com/su/earthlink.htm">&nbsp;Earthlink browser tag</a></li>
+					<li><a href="https://www.grc.com/tip/codfaq1.htm">&nbsp;ZIP &amp; JAZ click of death</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+	
+			<li><a href=""><span class="drop"><span>Dormant</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/vpn/vpn.htm">&nbsp;OpenVPN</a></li>
+					<li><a href="https://www.grc.com/r&d/assimilator.htm">&nbsp;The Assimilator</a></li>
+					<li><a href="https://www.grc.com/aspi_me.htm">&nbsp;ASPI ME</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+
+			<li><a href="https://www.grc.com/health.htm"><span class="drop"><span>Health</span>»</span><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+				<ul>
+					<li><a href="https://www.grc.com/health.htm">&nbsp;Health Homepage</a></li>
+					<li><a href="https://www.grc.com/health/lowcarb.htm">&nbsp;The Low Carb Choice</a></li>
+					<li><a href="https://www.grc.com/health/vitamin-d.htm">&nbsp;Vitamin D</a></li>
+				</ul>
+				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+			</li>
+
+		</ul>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+</ul>
+
+<ul>
+	<li id="other"><a href="https://www.grc.com/pdp-8/pdp-8.htm"><img src="./semantics_files/mb-other.gif" width="77" height="18" alt="[Other]" title=""><!--[if gt IE 6]><!--></a><!--<![endif]--><!--[if lt IE 7]><table border="0" cellpadding="0" cellspacing="0"><tr><td><![endif]-->
+		<ul>
+			<li><a href="https://www.grc.com/pdp-8/pdp-8.htm">&nbsp;PDP-8 Computers</a></li>
+			<li><a href="https://www.grc.com/misc/truecrypt/truecrypt.htm">&nbsp;TrueCrypt Repository</a></li>
+			<li><a href="https://www.grc.com/Big-Number-Calculator.htm">&nbsp;Big Number Calculator</a></li>
+			<li><a href="https://groups.google.com/forum/#!forum/portable-sound-blaster">&nbsp;Portable Sound Blaster</a></li>
+		</ul>
+		<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+	</li>
+</ul>
+
+</div> <!-- close "menu" div -->
+<hr style="display:none">
+</div></div></div> <!-- close the "minwidth" wrappers -->
+<!-- ###################### END OF GRC MASTHEAD MENU  ###################### -->
+
+
+<center>
+
+<span class="repel regionhead"><span>SQRL</span>SQRL</span>
+<div style="color:#bb0000; font-size:30pt;"><b>S</b>ecure <b>Q</b>uick <b>R</b>eliable <b>L</b>ogin</div>
+<div style="font-size:11pt; margin:1em;">Proposing a comprehensive, easy-to-use, high security replacement for usernames,<br>passwords, reminders, one-time-code authenticators<b>&nbsp;.&nbsp;.&nbsp;.</b> and everything else.</div><img src="./semantics_files/darkbluepixel.gif" width="90%" height="4" border="0" alt="divider"><div id="embelow" class="pagecontainer">
+
+<div class="red_tight_headline" style="font-size:20pt; margin-top:1em;">SQRL Link &amp; Query Protocol<br><b>SEMANTICS</b></div>This page details the <em>meaning</em> of SQRL client and web server interactions, and the meaning of the parameters required to facilitate those exchanges. The “<a href="https://www.grc.com/sqrl/protocol.htm">Protocol Syntax</a>” page specifies the detailed transmission format of this interchange.
+
+<div style="background-image: url(/image/reddiag.gif); text-align:center; padding:10px; margin:1em 0;"><div style="background:#fff; padding:10px; border:2px #f00 solid; "><div style="color:#C00;">THIS PRELIMINARY SPECIFICATION IS IN FLUX AND IS SUBJECT TO CHANGE AT ANY TIME</div><div style="margin-top:0.5em;">At this time it is being published for comment only. Please DO NOT RELY<br>upon it until this notice has been removed. (Which should be soon!)</div></div></div>
+
+<div class="red_tight_headline" style="font-size:16pt; margin-top:1em;">SQRL Client/Server Interaction Notes</div>
+For the sake of description brevity, it goes without saying that the client always provides any signatures required to authenticate any private key knowledge assertions it is making. Since it is always, at a minimum, asserting the user's identity, all of the information contained within the client's query will always carry at least one verifiable signature. If <b>any</b> of the client's key signatures fail to validate, the server returns a “signature failure” error and does <em>nothing</em> else.
+
+<p>Also, since the SQRL system is based upon an asymmetric authenticated-client model employing one-way signatures where only the client signs its queries, the server's data is protected by having the client always return and sign everything received from the server and having the server verify that what it received back from the client is identical to what it sent. One consequence of this, as we'll see, is that the server often provides some material to the client <em>before</em> it is required so that it may be retained by the client for possible later use, and meanwhile returned to the server for verification (of no tampering) under the client's signature.</p>
+
+<div class="red_tight_headline maj">SQRL Authentication Initiation</div>
+
+<p></p><table style="margin-top:-1em;" cellspacing="10" cellpadding="0">
+
+<tbody><tr><td class="dir"><b style="color:#800;">Server&nbsp;→</b><br>to<br><b style="color:#080;">→&nbsp;Client</b></td><td style="background:#008; width:2px;"></td><td>SQRL authentication is initiated when a SQRL client receives a SQRL URL that was previously (and usually recently) generated by a SQRL-aware web server. This URL might be received by the client optically as a QR code, or provided to the SQRL client by the operating system. Through this mechanism:<span class="font7px"><br><br></span><b>The SERVER offers a unique, opaque session-identifying token:</b><br>The Server provides the Client with a unique URL containing a cryptographically strong opaque token. One way or another, the subsequent return of the token must allow the server to determine the IP address (or a hash of the IP address in the case of IPv6 IPs) which originally requested the login page (to which a pending login session would be associated). It should also include a timestamp to detect the URL's age, and randomizing information to guarantee the nut's uniqueness and unpredictability. For further discussion of the composition of the server's “nut” see the <a href="https://www.grc.com/sqrl/server.htm">Web Server Behavior</a> page.</td></tr>
+</tbody></table><p></p>
+
+<p>The SQRL client, having received a unique token from the server through the SQRL link URL, initiates its first interaction with the web server. This identifies its user and allows it to obtain the user's stored data and web server features:</p>
+
+<div class="red_tight_headline maj">Initial Client/Server Interchange</div>
+
+<p></p><table style="margin-top:-1em;" cellspacing="10" cellpadding="0">
+
+<tbody><tr><td class="dir"><b style="color:#080;">←&nbsp;Client</b><br>to<br><b style="color:#800;">Server&nbsp;←</b></td><td style="background:#008; width:2px;"></td><td><b>The CLIENT returns the token &amp; asserts its user's identity:</b><br>Upon receiving the SQRL link URL—either through a same-device operating system hand off or a cross-device optical QR code scan—The client initiates an HTTPS (or HTTP) connection to the indicated IP, port, and protocol (SSL or not) and issues a POST query of the provided URL. The POST body issues the <em>query</em> command (cmd=query) and provides the user's current IDentity Key (cIDK) and current IDentity Signature (cIDS). Also, if the user's profile is currently loaded with a <em>previous identity</em>, the previous IDentity Key (pIDK) and previous IDentity Signature (pIDS) will also be included.</td></tr>
+
+<tr><td></td></tr>
+
+<tr><td class="dir"><b style="color:#800;">Server&nbsp;→</b><br>to<br><b style="color:#080;">→&nbsp;Client</b></td><td style="background:#008; width:2px;"></td><td><b>The SERVER returns the user's account information and status:</b><br><ol class="tightlist" style="margin:0.5em 0 0 2em;">
+<li>The Transaction Information Flags (TIF), which is binary encoded to indicate whether or not the user is known by their current ID, previous ID, or neither, whether or not the client's query IP matches the IP of the original login session-requesting page, whether or not SQRL authentication is enabled, and whether or not the identified user is logged into the server.</li>
+<li>A not-yet-valid URL link that can eventually be used to login to the pending session.</li>
+<li>If the user has a SQRL association, the server returns the account's Server Unlock Key (SUK) and Verify Unlock Key (VUK).</li>
+<li>The query path &amp; data to be used for the client's subsequent query.</li>
+<li>The website's simple display name (e.g. “Amazon”).</li>
+<li>(Plus a “nut” value used for session linking and replay attack prevention and other optional data — see details below.)</li>
+</ol></td></tr>
+
+</tbody></table><p></p>
+
+<p>This initial client/server interaction can be viewed as the client identifying itself for the purpose of querying the website's SQRL database to obtain its user's relevant status, plus information required for the SQRL client to navigate additional interactions:
+
+</p><ul>
+
+<li>The client has obtained everything the server knows about it: Whether and how the user is known to the server (by current ID, previous ID if any, or neither), whether the client's query IP matches the IP of the original page request, whether the user's SQRL login privilege is enabled or blocked, whether this user is currently logged in to the website.</li>
+
+<li>The site's simple display name is provided to the client for display during login confirmation. To detect any outbound tampering, it will be returned to the server, under the client's signature, for verification.</li>
+
+<li>The pending session URL link is provided to the client in this initial exchange so that it will be returned and signed to detect any third-party tampering. The client retains the link for possible use once login is complete.</li>
+
+<li>The account's Server Unlock (SUK) is provided so that, if the client wishes, its next query will have all the information required to perform any key replacements or account re-enabling.</li>
+
+<li>The Verify Unlock Key (VUK) is provided so that the client can verify its own Identity Unlock Key (IUK) to determine whether the server might have an older set of identity locking keys needing replacement.</li>
+
+<li>The query path &amp; data is not the entire URL for the client's next query, but only the path beginning at the root ‘/’. The IP, port, and protocol will remain unchanged from those obtained in the initial SQRL link URL. This allows the web server to embed whatever state it may wish to in another nut, and to also maintain state with the URL path itself. Any subsequent query(s) made by the client will be of this path and data. Once set, the client will issue all queries to this location and any server reply can update this path and data for subsequent queries.</li>
+
+</ul><p></p>
+
+<p>Login <em>NEVER</em> occurs without affirmative confirmation from the user. So this first data gathering interaction always results in a display explaining what has been learned, and requires some action by the user.</p>
+
+<p>The top of every action-requiring dialog will display the website's simple display name such as “<em>Amazon</em>”, “<em>Yahoo</em>”, “<em>Google</em>”, etc. This is much friendlier than our original conception of asking the user to visually parse and verify the SQRL link URL. If an attacker were to somehow intercept and change the website's simple display name in the web server's reply, this change would be detected with the user's next query, so no damage could be done.</p>
+
+<div class="red_tight_headline maj">Client &amp; User Interaction</div>
+
+<p>The SQRL system design methodology locates most of the heavy lifting complexity in the SQRL client. This fits the inherent many-to-one relationship with “many” website implementations being used by relatively fewer SQRL clients. We minimize website complexity where possible.</p>
+
+<p>The SQRL client “knows” whether it's performing a same- or cross-device login. It knows whether it is has been loaded with a new master identity key and/or a new identity unlock key and is thus in the process of retiring the previous identity or unlock key(s). From the server it knows whether the server has identified the user by either the current or the previous key (if any), or neither, and it's able to determine whether the current or the previous identity unlock key (if any) is governing. In other words, it's able to determine whether any key changes are possible (if previous keys are loaded) and whether the server is already using the current key(s) or still aware of the previous keys.</p>
+
+<p>The client gathers everything it knows, coupled with the results of the server's reply, which provides everything the server knows, and walks its user through the many options available based upon the specific circumstances:</p>
+
+<p class="greenhead" style="font-size:16pt;">The SQRL client holds a Q&amp;A session with its user.</p>
+
+<p>The SQRL client may have preset options for various aspects of this Q&amp;A interaction, for example: If a site is encountered that is still using the previous key: (a) Silently update the site to the current key (the client may prompt the user to load the Identity Unlock Key (IUK) if it's not currently loaded), or (b) Ask what to do. As another example, the client might be configured to ignore IP mismatch for the login mode in use, in which case the client would neither question nor alert its user. </p>
+
+<div class="nice_white_box" style="padding:1.5em;"><div style="text-align:center; font-size:larger; font-family: Arial, Helvetica, sans-serif; margin-bottom:0.5em;"><b>This (boxed region) is currently a placeholder</b></div>The following “Cases” are not intended to be a complete reference sample. They are meant to give a sense for the final specification. Once GRC has implemented a reference client, its reference algorithm will be used to replace this sample.
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">Unexpected IP address mismatch and the client is configured to alert its user in this situation.</div><div class="note">Note that SQRL clients will have a range of configuration settings for same-device and cross-device IP mismatch behavior. “Unexpected” means that under the prevailing conditions, an IP address mismatch would not be expected to occur.</div>The client will explain the specific situation with its user. The user will be advised to carefully reexamine their web browser's URL and to possibly restart their login by manually reentering the site's domain name. In any event, they will be given the opportunity to use the login URL provided by the web site once login has been completed.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The user is unknown to the server.</div><div class="note">(Neither the user's provided identity key, nor a “previous” identity key, if provided, are known to the web server.)</div>The client's response will be determined by many factors. For example, if the server's supplied “tif” (transaction information flags, see below) indicates that the SQRL link URL <b>is</b> associated with a logged-on user, the client will ask for confirmation that the user wishes to associate the user's SQRL ID with the currently logged-in account. (If the user thought their account already had a SQRL association, they might choose to decline and sort out the problem.) If the “tif” indicates that the SQRL link URL is not presently associated with a logged-on account, but it <b>does</b> indicate that the server supports in-band new account creation through SQRL, the client will explain that the user is not currently known to the web server. If this is unexpected the user should check their SQRL settings. If this is expected, the client would confirm that the user wishes to create a new account on this web server, which would then be logged-in and authenticated from the start with the user's current SQRL ID. And so on...</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The user was identified by their previous ID key (pIDK).</div>The user is migrating between identities, and this site still has the old (previous) identity. Users should be notified that the site has their previous identity, which may be expected. If a working identity unlock key (IUK or pIUK) is not available, and if the user wishes to update the site's identity, they will need to load the proper IUK for the site to enable an identity update. The user may choose not to update their identity at this time, but to proceed to login to the site under their previous identity. So this will serve as a reminder that they need to update their identity. In another mode, a user may only be wishing to quickly update their identity, and not login, by visiting many sites. So the user interface should facilitate this operation as well.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The user was  identified by their current ID key (IDK)</div>This, finally, is the most common operating circumstance. The website's provided Display Name will be shown for verification, the user will be told that their credentials have been accepted, and they will be given a choice whether to login with a link provided by the website, or to logon to the session associated with the original SQRL link URL.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The user is identified, but their SQRL login is currently disabled.</div>If the “tif” indicates that the user is not already logged-on, the client would explain that their SQRL identity has been recognized, but that SQRL logon has been previously disabled. If the client has already been loaded with an identity unlock key (and possibly a previous IUK) the client will ask whether the user wishes to re-enable SQRL logon. If no correct IUK or pIUK are available, the client will explain that if the user wishes to re-enable their SQRL logon they will need to load their Identity Unlock Key.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The client is updating its identity lock keying, so it is loaded with both its previous and current identity unlock keys and the server recognizes the PREVIOUS IUK.</div>This is what we expect when the user is updating their identity unlock keying. The client will inform the user that the server should be updated and will obtain permission before doing so.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The client is updating its identity lock keying, so it is loaded with both its previous and current identity unlock keys and the server recognizes the CURRENT IUK.</div>This is what we expect when the user is updating their identity unlock keying and the site has previously had its keying updated. Since having both IUKs loaded is atypical, the client notifies its user that this site's identity locking has already been updated.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">The user wishes to disable their SQRL logon rights for a site.</div>A user who fears that their SQRL identity may have become compromised, can unilaterally rescind their own logon rights as long as they are known to the site. The dialog that acknowledges that the user has been identified will contain an “Other Actions” button which takes the user to a dialog allowing them to rescind their own rights.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">A user wishes to logon to a site where rights have been disabled.</div>The dialog that acknowledges that a user is known to a site will indicate that SQRL logon rights have been disabled. It will explain that they must obtain and load their identity unlock key to re-enable SQRL access to the site.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">A user wishes to re-enable a site's SQRL logon rights.</div>If a user is recognized by a site that indicates that SQRL logon rights have been disabled, but a valid identity unlocking key is loaded into the client, the user will be offered the option of re-enabling their SQRL logon rights. If the client has also been loaded with a new identity key — as would likely be the case in such a scenario — the user's SQRL logon rights would be re-enabled synchronously with the user's identity key being updated. This would be performed in a single transaction, as an “atomic” operation, so that, at no time, could the retiring identity be used for SQRL login.</td></tr></tbody></table><p></p>
+
+<p></p><table cellpadding="0" cellspacing="0"><tbody><tr valign="top"><td><b>Case:&nbsp;&nbsp;</b></td><td><div class="case">A user wishes to permanently delete all SQRL association from a site.</div>A user may permanently remove their SQRL identity association from a site when their identity unlock key is loaded into the client and accepted by the site.</td></tr></tbody></table><p></p>
+
+<p>And so on. You get the idea. As stated above, the model is one where the client, interacting as needed with its user, determines what action(s) to take, then initiates them. To facilitate this, the client first obtains a complete snapshot of the website's SQRL association data including additional information such as whether the associated account is currently logged on, whether IPs match, whether SQRL is enabled, whether the website permits SQRL to create an anonymous account, and more. </p>
+
+<p>We have the ability to request logon of the original link's session, or only of the server-provided link. We also have the ability to logoff all user-associated sessions, which might be useful when also disabling or deleting SQRL access. All of these options, details, and interactions will be worked out and presented once a reference client has been created.</p>
+
+And no examples were provided showing the power created by the website's ability to present any acknowledgement, informative, or questioning dialog to its user through the SQRL interface. The site can label buttons, and even prompt for additional user-provided information such as an additional string of text (a password) or a PIN, to serve as something you know, when necessary.
+
+</div>
+
+<div class="red_tight_headline maj">Server -to- Client Semantics</div>
+
+<p>A remote web server provides data to a SQRL through two different channels: Encoded in the query tail of an SQRL link URL, and in the body of a reply to an SQRL client's query. Any of the parameters shown below may be used in either scenario though several make sense only in the server's replies to client queries.</p>
+
+<p>Parameters are named with a simple name=value syntax. When appearing in a URL query tale, the name=value pairs must be URL-safe and ampersand-separated following standard HTTP GET query syntax. When returned by a web server in response to a client's query, the name=value pairs occupy the body of the reply, appearing one per line with each pair terminated by a CRLF character pair. To enhance the clarity of the descriptions below, the equals signs have been set off with spaces, but spaces are never used in the SQRL protocol:</p>
+
+<ul>
+
+<div class="bar"><b>Web server's parameters sent to the SQRL client</b></div>
+
+<li><div class="larger_red_arial"><b>ver = 1[,n],[n-m]</b></div>The server MUST indicate the set of protocol versions it understands, supports, and is willing to use. Moreover, the version specification MUST be the first name=value pair appearing in the server's argument list. The protocol version specification consists of an unordered comma-separated list of one or more version numbers and/or version ranges. The server and client both declare their supported version sets and use the highest version available from the overlap of their sets.</li>
+
+<li><div class="larger_red_arial">nut = base64url encoded opaque token</div>The server's “nut” value is discussed extensively elsewhere. It is a never-repeating opaque cryptographically strong nonce which may, at the server's discretion, contain reversibly encrypted data used to main pre-login state in each SQRL link URL. Any trailing equals signs used for padding must be removed when it is being carried in a URL query tail.</li>
+
+<li><div class="larger_red_arial">tif = hexadecimal integer</div>The <b>Transaction Information Flags (TIF)</b> is a single hexadecimal encoded integer generated by the web server to convey a wide variety of user account and connection status information in an easily generated and easily interpreted form. The individual bits have the following values and meanings:
+
+<p></p><table class="bin" cellspacing="0">
+
+<tbody><tr valign="top"><td class="num">0x01</td><td>&nbsp;&nbsp;&nbsp;</td><td><span class="blu">(Current) ID match:</span> When set, this bit indicates that the web server has found an identity association for the user based upon the default (current) identity credentials supplied by the client: the IDentity Key (IDK) and the IDentity Signature (IDS).</td></tr>
+
+<tr valign="top"><td class="num">0x02</td><td>&nbsp;</td><td><span class="blu">Previous ID match:</span> When set, this bit indicates that the web server has found an identity association for the user based upon the <b>previous</b> identity credentials supplied by the client: the previous IDentity Key (pIDK) and the previous IDentity Signature (pIDS).<div class="not">Note: When <em>neither</em> of the ID match bits are set, <em>none</em> of the identity credentials supplied by the client are known to the web server.</div></td></tr>
+
+<tr valign="top"><td class="num">0x04</td><td>&nbsp;</td><td><span class="blu">IPs matched:</span> When set, this bit indicates that the IP address of the entity which requested the initial logon web page containing the SQRL link URL (and probably encoded into the SQRL link URL's “nut”) is the same IP address from which the SQRL client's query was received for this reply.</td></tr>
+
+<tr valign="top"><td class="num">0x08</td><td>&nbsp;</td><td><span class="blu">SQRL disabled:</span> When set, this bit indicates that this identity is <em>disabled</em> for SQRL-initiated authentication. While this bit is set, the “ident” command and any attempt at authentication will fail. This bit can only be reset, and the identity re-enabled for authentication, by the client issuing an “enable” command signed by the unlock request signature (urs) for the current identity. Since this signature requires the presence of the identity's RescueCode, only the strongest identity authentication is permitted to re-enable a disabled identity.</td></tr>
+
+<tr valign="top"><td class="num">0x10</td><td>&nbsp;</td><td><span class="blu">Function(s) not supported:</span> This bit indicates that the client requested one or more standard SQRL functions (through command verbs) that the server does not currently support. The client will likely need to advise its user that whatever they were trying to do is not possible at the target website. The SQRL server will fail this query, thus also setting the “40h” Command Failed bit.</td></tr>
+
+<tr valign="top"><td class="num">0x20</td><td>&nbsp;</td><td><span class="blu">Transient error:</span> The server replies with this bit set to indicate that the client's signature(s) are correct, but something about the client's query prevented the command from completing. This is the server's way of instructing the client to <em>retry and reissue</em> the immediately previous command using the fresh ‘nut=’ crypto material and ‘qry=’ url the server has also just returned in its reply. Although we don't want to overly restrict the specification of this error, the trouble is almost certainly static, expired, or previously used nut= or qry= data. Thus, reissuing the previous command under the newly supplied server parameters would be expected to succeed. The “0x40” “Command failed” bit (shown next) will also be set since the client's command will not have been processed.</td></tr>
+
+<tr valign="top"><td class="num">0x40</td><td>&nbsp;</td><td><span class="blu">Command failed:</span> When set, this bit indicates that the web server had a problem successfully processing the client's query. In any such case, <em>no change will be made</em> to the user's account status. All SQRL server-side actions are atomic. This means that either <em>everything</em> succeeds or <em>nothing</em> is changed. This is important since clients can request multiple updates and changes at once.<span class="font7px"><br><br></span>If this bit is set without the 80h bit set (see below) the trouble was not with the client's provided data, protocol, etc. but with some other aspect of completing the client's request. With the exception of the following “Client failure” status bit, the SQRL semantics do not attempt to enumerate every conceivable web server failure reason. The web server is free to use the “ask” command without arguments to explain the problem to the client's user.</td></tr>
+
+<tr valign="top"><td class="num bot">0x80</td><td class="bot">&nbsp;</td><td class="bot"><span class="blu">Client failure:</span> This bit is set by the server when some aspect of the client's submitted query ‑ <i>other than expired but otherwise valid transaction state information</i> ‑ was incorrect and prevented the server from understanding and/or completing the requested action. This could be the result of a communications error, a mistake in the client's SQRL protocol, a signature that doesn't verify, or required signatures for the requested actions which are not present. And more specifically, this is NOT an error that the server knows would likely be fixed by having the client silently reissue it previous command<b>&nbsp;.&nbsp;.&nbsp;.&nbsp;</b>although that might still be the first recouse for the client. This is NOT an error Since any such client failure will also result in a failure of the command, the 40h bit will also be set.</td></tr>
+
+</tbody></table><p></p>
+
+Note that the number of characters in the <em>“tif=”</em> value may change depending upon the number of characters required to represent the most significant “set” bit flag within the value. Also, additional bit flags defined in future versions of the protocol could be expected to expand the value beyond the nine bits defined for this first version 1 release. Therefore, neither the client nor the server should make any restrictive assumptions about the length of the <em>“tif's”</em> value.</li>
+
+<li><div class="larger_red_arial">qry = /query-path</div>The SQRL client initially makes contact with the remote web server by issuing the query contained in the SQRL link URL. But subsequent interactions will almost certainly be made to different web server objects. The “qry” parameter is <em><i>required</i></em> in every reply. It instructs the client what server object to query in its next (if any) query. To mitigate the potential for tampering, this qry parameter supplies the full path from the root and the object, not the scheme, domain name, or port. The scheme, domain and optional port override may only be specified once in the initial URL and cannot subsequently be changed.</li>
+
+<li><div class="larger_red_arial">sfn = Server's Friendly Name</div>(As short and few characters as possible to convey the site's name, in UTF8 format) MUST be provided by the web server. The value of this parameter is the common name by which the website is known. For example “Amazon”, “Yahoo!”, “Google”, etc. This will be displayed to the user to confirm the site they are about to authenticate to. Since the client returns this data with every command query, the web server can verify that the <em>sfn</em> it sent has not been tampered with and that the user saw the site's intended name.</li>
+
+<li><div class="larger_red_arial">suk = server unlock key</div>As described on the <a href="https://www.grc.com/sqrl/idlock.htm">Identity Lock Protocol</a> page, the <em>suk</em> value is originally generated and provided by to the server by the SQRL client whenever the client is creating a new identity association or modifying an existing association. The server retains this value as part of the client's identity and returns it to the client in its response to client queries that might require identity lock privilege. Specifically: any server responses with TIF bits 0x02 (previous identity) or 0x08 (identity disabled) set. This allows the client to provide the subsequent identity unlock signature, if needed, to either update the server's stored identity or re-enable a previously disabled account.</li>
+
+<li><div class="larger_red_arial">ask = message text [~button1 [;url]] [~button2 [;url]]]</div>The <em>ask</em> parameter allows the web server to present the user with a question or action confirmation message, and optionally the text for either one or two reply buttons. If no button text is specified, the SQRL client will provide its default ‘OK’ button.<span class="font7px"><br><br></span>This 'ask' parameter and function <em>may only be used</em> in TLS-secured queries and responses. SQRL clients MUST ignore it when TLS is not being used.<span class="font7px"><br><br></span>The text of the selected button will be returned to the server as the data for the ‘val=’ parameter so the server knows which choice was made.<span class="font7px"><br><br></span>Either button may include a URL link which the client will launch when that button is selected. This is in addition to returning the button's text to the server. The URL may contain either a root-relative URL beginning with ‘/’, in which case the current authentication scheme and domain will be used, or a fully explicit scheme and domain specification. If the scheme or domain differ from the current authentication scheme and domain, an interception dialog will be presented to warn the user that proceeding will take them to some other Internet resource.</li>
+
+<li><div class="larger_red_arial">(?) anything else</div>The web server <em>may</em> include any additional name=value pair data it wishes to, beyond those values enumerated above. (For example, a ‘mac=’ name and value might provide a message authentication code to detect any changes in the returned parameters.) If present, any additional parameters will have <em>no protocol meaning</em> whatsoever to the SQRL client and they will be silently ignored. They will, however, be returned by the client in its subsequent query, and signed. A web server may use any additional parameters to validation or to help it maintain state between its replies and the client next query.</li>
+
+</ul>
+
+<div class="red_tight_headline maj">Client -to- Server Semantics</div>
+
+<p><b>Sending back what the server sent to the client:</b><br>All client queries to the web server echo back to the server, under the client's signature(s), either the original SQRL link URL, or the previous reply data that was most recently received by the client. This allows the web server to verify that the client “saw” the same data that the server sent, thus detecting any possible in-flight round-trip tampering.</p>
+
+<p>The value of the client's “<b>server=</b>” name=value pair, contains this data, exactly as received, base64url encoded if necessary:</p><ul>
+
+<li>If the client is issuing its initial query from the original SQRL link URL, the complete URL from the “sqrl://” to its end is base64url encoded to render it URL-safe.</li><li>If the client is issuing a succeeding query after the initial one, it will have previously received the web server's reply in the form of a base64url-encoded list of name=value pairs, one per line. The client, therefore, does not need to base64url encode the server's previous reply. It simply returns exactly what it received to the server as the value of the “<b>server=</b>” parameter. The client's returning of the exact payload received, allows the web server to store a cryptographic hash of the payload it last sent and, after base64url decoding the value of the “<b>server=</b>” parameter, quickly verify the entire returned payload without needing to check each component individually. Any verification fault immediately fails the entire transaction. The web server will reply with the “Command failed” and “SQRL failure” set in the “<b>tif</b>” value.</li></ul><p></p>
+
+<p><b>The “client=” value:</b><br>The query's “<b>client=</b>” parameter contains a base64url encoded list of name=value pairs, one per line, with each line terminated by a CRLF character pair. The client assembles a list of the following name=value pairs to return data to the web server, to specify one or more command actions it is requesting from the server, and to provide any cryptographic keying material required to authorize the requested actions and/or authenticate its user's identity:</p>
+
+<ul>
+<li><div class="larger_red_arial"><b>ver = 1</b></div>As with the server's supported version set declaration, the client MUST declare the set of protocol versions it understands, supports, and is willing to use. Moreover, the version specification MUST be the first name=value pair appearing in the client's argument list. The protocol version specification consists of an unordered comma-separated list of one or more version numbers and/or version ranges. The server and client both declare their supported version sets and use the highest version available from the overlap of their sets.</li>
+
+<li><div class="larger_red_arial">cmd = verb</div>The value of the “cmd” parameter specifies the action the client is requesting from the web server. It consists of one of the following verbs:
+
+<table class="bin" cellspacing="0">
+
+<tbody><tr valign="top"><td class="num">query</td><td>&nbsp;&nbsp;&nbsp;</td><td>This verb is essentially a no-op request for the web server. It is used during the initial connection by the client to request and obtain the user's current status on the remote server and (importantly!) to allow the server to assert its identity through its friendly name (e.g. GRC or AMAZON) so that the user can verify the server being authenticated against. Although the server might, at its discretion, take note of the event, no permanent change to the user's status occurs. This query command allows the SQRL client to determine, for its own purposes, the server's TIF (Transaction Information Flags) value for this user which allows it to determine whether and how the user is known to the server, whether the user is currently logged into the server, whether SQRL logon is enabled, etc.</td></tr>
+
+<tr valign="top"><td class="num">ident</td><td>&nbsp;&nbsp;&nbsp;</td><td>This verb requests the web server to accept the user's identity assertion as provided by this signed query. The user will have seen and verified the server's identity as was provided in the server's reply to the previous “query” interchange.</td></tr>
+
+<tr valign="top"><td class="num">disable</td><td>&nbsp;&nbsp;&nbsp;</td><td>This verb instructs the web server to immediately disable the SQRL system's login privilege for this account. This might be requested if the user had reason to believe that their SQRL master key had been compromised. It is intended to be a short-term stop-gap measure to protect important accounts until a new master key can be created and set. A recognized user may therefore request this without supplying their identity's matching identity unlock (RESCUECODE) credentials.</td></tr>
+
+<tr valign="top"><td class="num">enable</td><td>&nbsp;&nbsp;&nbsp;</td><td>This is the reverse of the ‘disable’ verb. It reestablishes SQRL system login privilege for the user's account. Unlike ‘disable’, however, ‘enable’ requires the additional authorization provided by the account's current unlock request signature (URS).</td></tr>
+
+<tr valign="top"><td class="num bot">remove</td><td class="bot">&nbsp;&nbsp;&nbsp;</td><td class="bot">This verb instructs the web server to immediately remove all trace of this SQRL identity from the server. For example, this process would allow an account to be disassociated from one SQRL identity and subsequently reassociated with another. This is not the same as the identity being changed, since this allows a change to an unassociated identity. Because this is a privileged operation, it must be authorized by the inclusion of the current (soon to be removed) SQRL identity's unlock request signature (URS).<span class="font7px"><br><br></span>Since the associated account might not have an alternative (non-SQRL) method of subsequently authenticating a user (e.g. no other login means) <em>the web server should leave the current account logged-in</em> so that a replacement SQRL identity can be associated, and it should also advise the user of the need to immediately add a new SQRL identity if they wish to retain access to their account.</td></tr>
+
+</tbody></table></li>
+
+<li><div class="larger_red_arial">opt = option1[~option2[~option3]...]</div>The value of the “opt” parameter specifies, in no particular order, the list of user options the client is asserting to the web server. As noted in the individual descriptions below, if the assertion of these options is desired, they must <em>always</em> be asserted by the client with the inclusion of this “opt” specification in every authenticating query. In other words, these options are not sticky, so the “opt” term must be included with every “ident”, “disable” or “enable” query. They will have no effect whether or not present in a “query” command.<span class="font7px"><br><br></span>The value of the “opt” parameter consists of one or more tilde-separated assertions:
+
+<table class="bin" cellspacing="0">
+
+<tbody><tr valign="top"><td class="num">sqrlonly</td><td>&nbsp;&nbsp;&nbsp;</td><td>When present, this option requests the web server to set a flag on this user's account to disable any alternative non-SQRL logon capability, such as weaker traditional username and password authentication.<span class="font7px"><br><br></span>Users who have become confident of their use of SQRL may ask their client to include this optional request. The web server should only assume this intention if the option is present in every transaction. Its absence from any interaction should immediately reset the flag and prohibition in the web server. The web server may, at its option, notice when any change has occurred and explicitly ask the user to affirm their changed intention.</td></tr>
+
+<tr valign="top"><td class="num">hardlock</td><td>&nbsp;&nbsp;&nbsp;</td><td>When present, this option requests the web server to set a flag on this user's account to disable any alternative “out of band” change to this user's SQRL identity, such as traditional and weak “what as your favorite pet's name” non-SQRL identity authentication.<span class="font7px"><br><br></span>Users who have become confident of their use of SQRL may ask their client to include this optional request. The web server should only assume this intention if the option is present in every transaction. Its absence from any interaction should immediately reset the flag and prohibition in the web server. The web server may, at its option, notice when any change has occurred and explicitly ask the user to affirm their changed intention.</td></tr>
+
+</tbody></table></li>
+
+<li><div class="larger_red_arial">val = results of the server's “ask” parameter</div>The value of the <em>val</em> parameter is the user's response to the server's <em>ask</em> prompt for information. If form fields have been filled-in by the user, multiple <em>“val=”</em> name=value pairs will appear. The format of the <em>val's</em> value is described above in the description of the server's ask parameter.</li>
+
+<div class="bar"><b>Keys</b></div>
+
+<li><div class="larger_red_arial">idk = IDentity Key</div>This is the user's SQRL ID which uniquely identifies them to the site. It is the elliptic curve public key derived from the user's master key (mk) after it has been processed with the site's “site key string” <em>sks</em>, which is the extended domain name used for keying the site's ID. The binary key is base64url encoded with trailing equals sign padding preferably removed.</li>
+
+<li><div class="larger_red_arial">pidk = Previous IDentity Key</div>When a user has changed their master key and wishes to update a website's SQRL association with the new key, their SQRL client will be using the new key as its <em>idk</em>, but websites which have not yet been updated will only recognize the user by their previous idk. So the SQRL client will retain the previous master key (<em>pmk</em>) so that it may synthesize the <em>pidk</em> to enable sites to identify the user and allow the SQRL client to use the <em>setkey</em> command along with the unlock request signature (<em>urs</em>) to replace the now-obsolete SQRL identity data with the new data.</li>
+
+<li><div class="larger_red_arial">suk = Server Unlock Key</div>This <em>suk</em> key is included in every client 'ident' query when the immediately previous server reply did not have the 0x01 bit of its <em>tif</em> flags set. The lack of tif bit 0x01 indicates that the server does not recognize the client by its current identity key and signature. The server might not recognize the client's identity at all (neither <em>tif</em> 0x01 or 0x02 bits are set) or it might recognize the client by its previous identity (<em>tif</em> bit 0x02 set). In either case the client must assert its <em>current</em> identity by providing the server with both this <em>suk</em> and a corresponding <em>vuk</em> (see below). As described on the <a href="https://www.grc.com/sqrl/idlock.htm">Identity Lock Protocol</a> page, the server unlock key is a DHKA (Diffie-Hellman Key Agreement) public key generated by the client and then stored by the server and returned to the client with every reply.</li>
+
+<li><div class="larger_red_arial">vuk = Verify Unlock Key</div>This <em>vuk</em> key is generated with and always accompanies the <em>suk</em> key described above. As described on the <a href="https://www.grc.com/sqrl/idlock.htm">Identity Lock Protocol</a> page, the verify unlock key is a DHKA (Diffie-Hellman Key Agreement) public key generated by the client, stored by the server, and used by the web server to verify the unlock request signature (<em>urs</em>) provided by the client whenever it wishes to authorize an identity change of the use of the <em>enable</em> command.</li>
+
+</ul>
+
+<div class="red_tight_headline maj">Client Signatures</div>
+
+<p>All client queries sent to the web server are signed using private keys matching one or more of the public keys included in the <em>“client=”</em> name=value list. The data to be signed are the two base64url encoded values of the <em>“client=”</em> and <em>“server=”</em> parameters with the <em>“server=”</em> value concatenated to the end of the <em>“client=”</em> value. </p>
+
+<ul>
+
+<li><div class="larger_red_arial">ids = IDentity Signature</div>This is the signature used to authenticate the contents of the query block sent to the web server. The SQRL client synthesizes the site-specific private key, uses that to sign the concatenated values of the previously mentioned client and server parameters, sends the resulting signature to the web server as the value of this <em>ids</em> parameter. The web server verifies the signature using the accompanying <em>idk</em>, which must also match the value stored in the user's SQRL account association.</li>
+
+<li><div class="larger_red_arial">pids = Previous IDentity Signature</div>As with the <em>pidk</em> (previous identity key), this data is sent to the web server when a SQRL client has updated its master key (mk). The client retains the previous master key (pmk) to enable it to generate the <em>pidk</em> and <em>pids</em> values. These will both be necessary for the web server to identify and authenticate a user by their <em>previous</em>, not-yet-updated, identity.</li>
+
+<li><div class="larger_red_arial">urs = Unlock Request Signature</div>The unlock request signature provides proof to the web server that the SQRL client is in possession of the RESCUECODE-protected identity unlock key. If the SQRL client does not currently have the required secret URSK loaded into RAM it will not, and cannot, supply the matching URS value and it may prompt the user to provide the secret RESCUECODE if needed. SQRL's most security-critical (and uncommon) operations are protected by this special signing requirement. The web server supplies its stored server unlock key (SUK) with every reply. This enables the client to generate an unlock request signature of the client and server data being sent to the web server with its next query. The web server uses its stored verify unlock key (VUK) to verify the client's signature. Any usage of the ENABLE command verb to re-enable a disabled identity, or replacing a previous identity with the current identity, must be accompanied by a valid unlock request signature.</li>
+
+</ul>
+
+</div>
+
+<br><br>
+
+<center><font style="font-size:smaller;">Secure QR Login (SQRL) Documentation:</font><br>
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><div class="linkblock">
+<table border="0" cellpadding="0" cellspacing="0"><tbody><tr valign="top">
+<td>
+<div><span>&nbsp;&nbsp;&nbsp;1&nbsp;<span><a href="https://www.grc.com/sqrl/sqrl.htm">Introduction &amp; overview</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;2&nbsp;<span><a href="https://www.grc.com/sqrl/userview.htm">The user's view of the application</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;3&nbsp;<span><a href="https://www.grc.com/sqrl/crypto.htm">Detailed crypto architecture</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;4&nbsp;<span><a href="https://www.grc.com/sqrl/idlock.htm">The identity lock protocol</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;5&nbsp;<span><a href="https://www.grc.com/sqrl/key-flow.htm">Client-Side key management</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;6&nbsp;<span><a href="https://www.grc.com/sqrl/operation.htm">User-interface &amp; operation</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;7&nbsp;<span><a href="https://www.grc.com/sqrl/phishing.htm">Anti-phishing countermeasures</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;8&nbsp;<span><a href="https://www.grc.com/sqrl/attacks.htm">Attacks, weaknesses, vulnerabilities</a>&nbsp;</span></span></div>
+<div><span>&nbsp;&nbsp;&nbsp;9&nbsp;<span><a href="https://www.grc.com/sqrl/protocol.htm">Link &amp; query protocol syntax</a>&nbsp;</span></span></div>
+<div><span>&nbsp;10&nbsp;<span><a href="./semantics_files/semantics.html">Link &amp; query protocol semantics</a>&nbsp;</span></span></div>
+</td>
+<td>
+<div><span>&nbsp;11&nbsp;<span><a href="https://www.grc.com/sqrl/storage.htm">SQRL's Secure Storage System</a>&nbsp;</span></span></div>
+<div><span>&nbsp;12&nbsp;<span><a href="https://www.grc.com/sqrl/scrypt.htm">Our use of the SCrypt PBKDF</a>&nbsp;</span></span></div>
+<div><span>&nbsp;13&nbsp;<span><a href="https://www.grc.com/sqrl/client.htm">Client implementation details</a>&nbsp;</span></span></div>
+<div><span>&nbsp;14&nbsp;<span><a href="https://www.grc.com/sqrl/server.htm">Web server behavior</a>&nbsp;</span></span></div>
+<div><span>&nbsp;15&nbsp;<span><a href="https://www.grc.com/sqrl/resources.htm">Implementation resources</a>&nbsp;</span></span></div>
+<div><span>&nbsp;16&nbsp;<span><a href="https://www.grc.com/sqrl/implementations.htm">Projects and finished applications</a>&nbsp;</span></span></div>
+<div><span>&nbsp;17&nbsp;<span><a href="https://www.grc.com/sqrl/commentary.htm">SQRL commentary from the industry</a>&nbsp;</span></span></div>
+<div><span>&nbsp;18&nbsp;<span><a href="https://www.grc.com/sqrl/other.htm">Other related QR code login work</a>&nbsp;</span></span></div>
+<div><span>&nbsp;19&nbsp;<span><a href="https://www.grc.com/sqrl/faq.htm">Frequently Asked SQRL Questions</a>&nbsp;</span></span></div>
+<div><span>&nbsp;20&nbsp;<span><a href="https://www.grc.com/sqrl/feedback.htm">Feedback about SQRL &amp; these pages</a>&nbsp;</span></span></div>
+</td>
+</tr></tbody></table></div></td></tr></tbody></table>
+<br><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><a href="https://www.grc.com/sqrl/semantics.htm#top" target="_top"><img src="./semantics_files/grc-icon.gif" width="51" height="51" border="0" alt="Jump to top of page" title="Jump to top of page"></a></td><td><div style="margin:0 20px;"><font size="-2" color="#777777">Gibson Research Corporation is owned and operated by Steve Gibson.&nbsp;&nbsp;The contents<br>of this page are Copyright (c) 2014 Gibson Research Corporation. SpinRite, ShieldsUP,<br>NanoProbe, and any other indicated trademarks are registered trademarks of Gibson<br>Research Corporation, Laguna Hills, CA, USA. GRC's web and customer <a href="https://www.grc.com/privacy.htm" target="_top">privacy policy</a>.</font></div></td><td><div style="margin:7px 0;"><a href="https://www.grc.com/sqrl/semantics.htm#top" target="_top"><img src="./semantics_files/jumptotop.png" width="52" height="38" border="0" alt="Jump to top of page" title="Jump to top of page"></a></div></td></tr></tbody></table><br>
+<!-- ChangeDetection.com detection="off" -->
+<table width="90%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td><font color="#666666" size="-2">Last Edit: Apr 20, 2015 at 10:19 (17.75 days ago)</font></td><td align="right"><font color="#666666" size="-2">Viewed 7 times per day</font></td></tr></tbody></table>
+</center><a name="bottom"></a>
+</center><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i; } else { d.textContent=i; } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }}catch(e){}</script></body></html>
